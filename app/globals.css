@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 120 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 20% 12%;
+
+    --primary: 120 25% 23%;
+    --primary-foreground: 40 33% 97%;
+
+    --secondary: 40 40% 90%;
+    --secondary-foreground: 120 25% 23%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 120 8% 40%;
+
+    --accent: 38 62% 56%;
+    --accent-foreground: 120 25% 15%;
+
+    --border: 40 18% 85%;
+    --input: 40 18% 85%;
+    --ring: 38 62% 56%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern", "liga";
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Gold shimmer divider */
+  .gradient-gold {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--accent)) 20%,
+      hsl(38 70% 66%) 50%,
+      hsl(var(--accent)) 80%,
+      transparent
+    );
+  }
+  .bg-grain {
+    background-image: radial-gradient(
+      hsl(120 20% 12% / 0.025) 1px,
+      transparent 1px
+    );
+    background-size: 4px 4px;
+  }
+  .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      hsl(120 30% 8% / 0.35) 0%,
+      hsl(120 30% 8% / 0.45) 40%,
+      hsl(120 30% 8% / 0.75) 100%
+    );
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
